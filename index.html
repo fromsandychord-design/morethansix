@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MORE THAN SIX | 人にしかできない仕事のために</title>
+  <meta name="description" content="AI活用で投資対効果6倍の提案をします。業務フローの自動化で、今こそ人が生み出せる価値の探求を。">
+  <meta property="og:title" content="MORE THAN SIX | 人にしかできない仕事のために">
+  <meta property="og:description" content="AI活用で投資対効果6倍の提案をします。業務フローの自動化で、今こそ人が生み出せる価値の探求を。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://morethansix.jp/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #1a2332;
+      --navy-light: #243044;
+      --navy-dark: #0f1720;
+      --white: #ffffff;
+      --off-white: #f7f8fa;
+      --gray-100: #e8ebf0;
+      --gray-200: #d0d5dd;
+      --gray-400: #8892a0;
+      --gray-600: #5a6474;
+      --accent: #4a90d9;
+      --accent-light: #6ba5e3;
+      --accent-dark: #3570b5;
+      --gold: #c9a84c;
+      --gold-light: #e0c56c;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--navy);
+      background: var(--white);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .en { font-family: 'Outfit', sans-serif; }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+      background: rgba(26, 35, 50, 0.95);
+      backdrop-filter: blur(12px);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    nav .logo {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700; font-size: 1.1rem;
+      color: var(--white); text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+    nav ul {
+      list-style: none; display: flex; gap: 2rem; align-items: center;
+    }
+    nav ul li a {
+      color: rgba(255,255,255,0.7); text-decoration: none;
+      font-size: 0.85rem; font-weight: 400;
+      transition: color 0.2s;
+    }
+    nav ul li a:hover { color: var(--white); }
+    nav ul li:last-child a {
+      background: var(--accent);
+      color: var(--white);
+      padding: 0.5rem 1.2rem;
+      border-radius: 6px;
+      font-weight: 500;
+    }
+    nav ul li:last-child a:hover { background: var(--accent-light); }
+
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px; cursor: pointer;
+      background: none; border: none; padding: 8px;
+    }
+    .hamburger span {
+      width: 24px; height: 2px; background: var(--white);
+      transition: 0.3s;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(160deg, var(--navy-dark) 0%, var(--navy) 50%, var(--navy-light) 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: radial-gradient(ellipse at 30% 20%, rgba(74,144,217,0.08) 0%, transparent 60%),
+                  radial-gradient(ellipse at 70% 80%, rgba(201,168,76,0.05) 0%, transparent 60%);
+    }
+    .hero-content { position: relative; max-width: 720px; }
+    .hero-logo {
+      width: 180px; margin-bottom: 2rem; opacity: 0.95;
+    }
+    .hero h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 300;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.02em;
+    }
+    .hero h1 strong { font-weight: 600; }
+    .hero p {
+      font-size: 0.95rem; color: rgba(255,255,255,0.7);
+      line-height: 2; max-width: 560px; margin: 0 auto 2.5rem;
+    }
+    .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all 0.25s;
+      border: none; cursor: pointer;
+    }
+    .btn-primary:hover { background: var(--accent-light); transform: translateY(-1px); }
+    .btn-secondary {
+      background: transparent;
+      color: rgba(255,255,255,0.8);
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 0.95rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: all 0.25s;
+    }
+    .btn-secondary:hover { border-color: rgba(255,255,255,0.5); color: var(--white); }
+
+    /* ===== INTRO ===== */
+    .intro {
+      padding: 5rem 2rem;
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .intro .tagline {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--accent);
+      font-style: italic;
+      margin-bottom: 2rem;
+    }
+    .intro p {
+      font-size: 0.95rem;
+      color: var(--gray-600);
+      line-height: 2.2;
+    }
+
+    /* ===== SECTIONS ===== */
+    section { padding: 5rem 2rem; }
+
+    .section-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-size: clamp(1.4rem, 3vw, 1.8rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+    .section-desc {
+      font-size: 0.9rem;
+      color: var(--gray-600);
+      max-width: 560px;
+      line-height: 1.9;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .section-header .section-desc { margin: 0.8rem auto 0; }
+
+    .bg-off-white { background: var(--off-white); }
+
+    /* ===== SERVICES CARDS ===== */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--gray-100);
+      border-radius: 12px;
+      padding: 2rem 1.5rem;
+      transition: all 0.3s;
+      position: relative;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(26,35,50,0.08);
+    }
+    .service-card .num {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+    .service-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+    .service-card .sub {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.75rem;
+      color: var(--gray-400);
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+    .service-card p {
+      font-size: 0.85rem;
+      color: var(--gray-600);
+      line-height: 1.9;
+    }
+    .service-card.featured {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy);
+    }
+    .service-card.featured .num { color: var(--gold); }
+    .service-card.featured .sub { color: rgba(255,255,255,0.5); }
+    .service-card.featured p { color: rgba(255,255,255,0.75); }
+
+    /* ===== RESULTS ===== */
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .result-item { text-align: center; }
+    .result-num {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.2;
+    }
+    .result-label {
+      font-size: 0.85rem;
+      color: var(--gray-600);
+      margin-top: 0.3rem;
+    }
+
+    /* ===== PRICING ===== */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .pricing-card {
+      background: var(--white);
+      border: 1px solid var(--gray-100);
+      border-radius: 12px;
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s;
+    }
+    .pricing-card:hover {
+      box-shadow: 0 8px 32px rgba(26,35,50,0.07);
+    }
+    .pricing-card.featured-pricing {
+      border: 2px solid var(--navy);
+      position: relative;
+    }
+    .pricing-card.featured-pricing::before {
+      content: 'RECOMMENDED';
+      position: absolute;
+      top: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      padding: 0.25rem 1rem;
+      border-radius: 20px;
+    }
+    .pricing-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+    .pricing-card .pricing-sub {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.7rem;
+      color: var(--gray-400);
+      letter-spacing: 0.08em;
+      margin-bottom: 1.2rem;
+    }
+    .pricing-card .price {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.2rem;
+    }
+    .pricing-card .price small {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: var(--gray-400);
+    }
+    .pricing-card .price-note {
+      font-size: 0.75rem;
+      color: var(--gray-400);
+      margin-bottom: 1.5rem;
+    }
+    .pricing-card ul {
+      list-style: none;
+      flex: 1;
+      margin-bottom: 1.5rem;
+    }
+    .pricing-card ul li {
+      font-size: 0.85rem;
+      color: var(--gray-600);
+      padding: 0.4rem 0;
+      padding-left: 1.2rem;
+      position: relative;
+      line-height: 1.6;
+    }
+    .pricing-card ul li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+    .pricing-card .btn-card {
+      display: block;
+      text-align: center;
+      padding: 0.75rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      border: 1px solid var(--gray-200);
+      color: var(--navy);
+      transition: all 0.25s;
+    }
+    .pricing-card .btn-card:hover {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy);
+    }
+    .pricing-card.featured-pricing .btn-card {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy);
+    }
+    .pricing-card.featured-pricing .btn-card:hover {
+      background: var(--navy-light);
+    }
+
+    /* ===== TEAM ===== */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .team-member {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .team-photo {
+      width: 160px; height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1.2rem;
+      border: 3px solid var(--gray-100);
+    }
+    .team-role {
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+    }
+    .team-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.1rem;
+    }
+    .team-name-en {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.8rem;
+      color: var(--gray-400);
+      margin-bottom: 1rem;
+    }
+    .team-bio {
+      font-size: 0.85rem;
+      color: var(--gray-600);
+      line-height: 2;
+      max-width: 360px;
+    }
+
+    /* ===== CONTACT ===== */
+    .contact { background: var(--navy); color: var(--white); }
+    .contact .section-label { color: var(--gold); }
+    .contact .section-desc { color: rgba(255,255,255,0.6); }
+
+    .contact-form {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+      color: rgba(255,255,255,0.8);
+    }
+    .form-group label .required {
+      font-size: 0.7rem;
+      color: var(--gold);
+      margin-left: 0.3rem;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.05);
+      color: var(--white);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.9rem;
+      transition: border-color 0.2s;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    .form-group select option { background: var(--navy); color: var(--white); }
+    .form-group textarea { min-height: 120px; resize: vertical; }
+
+    .form-submit {
+      width: 100%;
+      padding: 1rem;
+      background: var(--accent);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.25s;
+    }
+    .form-submit:hover { background: var(--accent-light); }
+    .form-note {
+      text-align: center;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      margin-top: 0.8rem;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--navy-dark);
+      color: rgba(255,255,255,0.5);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      line-height: 2;
+    }
+    footer strong {
+      font-family: 'Outfit', sans-serif;
+      color: rgba(255,255,255,0.7);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .services-grid,
+      .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 768px) {
+      nav ul { display: none; }
+      .hamburger { display: flex; }
+      nav.menu-open ul {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 64px; left: 0; width: 100%;
+        background: var(--navy);
+        padding: 1.5rem 2rem;
+        gap: 1rem;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+      }
+      .services-grid,
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+      .results-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .team-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .hero h1 { font-size: 1.4rem; }
+      .hero-btns { flex-direction: column; align-items: center; }
+    }
+
+    /* ===== ANIMATIONS ===== */
+    .fade-up {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1; transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="top">
+  <a href="#top" class="logo">MORE THAN SIX</a>
+  <button class="hamburger" onclick="this.closest('nav').classList.toggle('menu-open')" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+  <ul>
+    <li><a href="#services">サービス</a></li>
+    <li><a href="#results">実績</a></li>
+    <li><a href="#pricing">料金</a></li>
+    <li><a href="#about">チーム</a></li>
+    <li><a href="#contact">無料相談</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <img src="https://morethansix.jp/logo-white.png" alt="MORE THAN SIX" class="hero-logo">
+    <h1>AI活用で<strong>投資対効果6倍</strong>の提案をします。<br>
+    業務フローの自動化で、<br>今こそ人が生み出せる価値の探求を</h1>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">無料相談を予約する</a>
+      <a href="#services" class="btn-secondary">サービスを見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<div class="intro fade-up">
+  <p class="tagline">1時間かかっていた仕事が、3分で終わる。<br>浮いた57分で、何をしますか？</p>
+  <p>12年間、キャンプ場とグランピング施設を経営してきました。<br>
+  自社にAIを導入し、シフト作成、予約管理、経理処理——<br>
+  裏方の業務が劇的に変わる経験をしています。<br>
+  その実体験から、同じ課題を持つ事業者をお手伝いします。</p>
+</div>
+
+<!-- SERVICES -->
+<section id="services" class="bg-off-white">
+  <div class="section-header fade-up">
+    <p class="section-label en">Services</p>
+    <h2 class="section-title">4つの支援メニュー</h2>
+    <p class="section-desc">「知る」から「使いこなす」まで。<br>経営者の現場を知るからこそ提供できる、実践型の支援です。</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card fade-up">
+      <p class="num en">01</p>
+      <h3>AI講座</h3>
+      <p class="sub en">Workshop</p>
+      <p>経営者・社員向けに、AI活用の基礎から実践までをハンズオン形式で。御社の業務内容に合わせたカスタマイズ講座で、「使える知識」を持ち帰っていただきます。</p>
+    </div>
+    <div class="service-card fade-up">
+      <p class="num en">02</p>
+      <h3>事業全体のAI顧問</h3>
+      <p class="sub en">Advisory</p>
+      <p>月額契約で、AIの導入から定着までを伴走。「何をAIに任せるべきか」の判断から、ツール選定、運用設計、社員教育まで一貫してサポートします。</p>
+    </div>
+    <div class="service-card fade-up">
+      <p class="num en">03</p>
+      <h3>カスタマイズSaaS構築</h3>
+      <p class="sub en">Custom SaaS</p>
+      <p>御社の業務に合わせたカスタマイズSaaSを構築。既製品では対応しきれない業務フローも、AIとツールの組み合わせで自動化・効率化します。</p>
+    </div>
+    <div class="service-card featured fade-up">
+      <p class="num en">04</p>
+      <h3>経営統合OS</h3>
+      <p class="sub en">Management OS</p>
+      <p>あとは最終確認をするだけ——。入力から出力までAIが自動化し、最適化されたUIで人間は確認するだけで仕事が進む。業務全体をつなぐ、御社専用の経営オペレーションシステムを構築します。</p>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section id="results">
+  <div class="section-header fade-up">
+    <p class="section-label en">Results</p>
+    <h2 class="section-title">自社実績</h2>
+    <p class="section-desc">自社5施設での実証から得た、リアルな成果です。</p>
+  </div>
+  <div class="results-grid">
+    <div class="result-item fade-up">
+      <p class="result-num en">85%</p>
+      <p class="result-label">シフト作成を3分で完了</p>
+    </div>
+    <div class="result-item fade-up">
+      <p class="result-num en">5<small>施設</small></p>
+      <p class="result-label">自社AI導入施設数</p>
+    </div>
+    <div class="result-item fade-up">
+      <p class="result-num en">12<small>年</small></p>
+      <p class="result-label">観光業の経営実績</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="bg-off-white">
+  <div class="section-header fade-up">
+    <p class="section-label en">Services &amp; Pricing</p>
+    <h2 class="section-title">4つのサービス</h2>
+    <p class="section-desc">まずは無料相談から。御社の課題に合わせた最適なサービスをご提案します。</p>
+  </div>
+  <div class="pricing-grid">
+
+    <!-- AI講座 -->
+    <div class="pricing-card fade-up">
+      <h3>AI講座</h3>
+      <p class="pricing-sub en">Workshop</p>
+      <p class="price en">33<small>万円〜</small></p>
+      <p class="price-note">税込 ／ 複数回コース（1回2〜3時間）</p>
+      <ul>
+        <li>御社の業務に合わせた内容</li>
+        <li>ハンズオン形式で即実践</li>
+        <li>講座後のフォローアップ付き</li>
+        <li>回数・内容はカスタマイズ可</li>
+      </ul>
+      <a href="#contact" class="btn-card">相談する</a>
+    </div>
+
+    <!-- AI顧問 -->
+    <div class="pricing-card fade-up">
+      <h3>事業全体のAI顧問</h3>
+      <p class="pricing-sub en">Advisory</p>
+      <p class="price en">16.5<small>万円〜／月</small></p>
+      <p class="price-note">税込 ／ 3ヶ月〜</p>
+      <ul>
+        <li>チャット相談＋定期ミーティング</li>
+        <li>ツール選定・導入サポート</li>
+        <li>社員向けAI研修</li>
+        <li>提案から実装までPDCA伴走</li>
+      </ul>
+      <a href="#contact" class="btn-card">相談する</a>
+    </div>
+
+    <!-- カスタマイズSaaS -->
+    <div class="pricing-card fade-up">
+      <h3>カスタマイズSaaS構築</h3>
+      <p class="pricing-sub en">Custom SaaS</p>
+      <p class="price en">33<small>万円〜／モジュール</small></p>
+      <p class="price-note">税込 ／ 案件ごと</p>
+      <ul>
+        <li>業務フローの分析・設計</li>
+        <li>御社専用の自動化を構築</li>
+        <li>AIとツールを組み合わせて最適化</li>
+        <li>運用・保守サポート付き</li>
+      </ul>
+      <a href="#contact" class="btn-card">相談する</a>
+    </div>
+
+    <!-- 経営統合OS -->
+    <div class="pricing-card featured-pricing fade-up">
+      <h3>経営統合OS</h3>
+      <p class="pricing-sub en">Management OS</p>
+      <p class="price en">330<small>万円〜</small></p>
+      <p class="price-note">税込 ／ 御社専用設計</p>
+      <ul>
+        <li>業務全体のAI自動化を統合設計</li>
+        <li>入力→処理→出力を一気通貫で構築</li>
+        <li>人間は最終確認するだけの仕組み</li>
+        <li>段階導入・運用保守サポート付き</li>
+      </ul>
+      <a href="#contact" class="btn-card">相談する</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="about">
+  <div class="section-header fade-up">
+    <p class="section-label en">About</p>
+    <h2 class="section-title">チーム</h2>
+    <p class="section-desc">経営の現場感覚と、確かな技術力。<br>二人の強みを掛け合わせて、御社のAI活用を支えます。</p>
+  </div>
+  <div class="team-grid">
+    <div class="team-member fade-up">
+      <img src="https://morethansix.jp/profile.jpeg" alt="南畠義明" class="team-photo">
+      <p class="team-role">代表 ／ 経営・戦略</p>
+      <p class="team-name">南畠 義明</p>
+      <p class="team-name-en en">Yoshiaki Minamihata</p>
+      <p class="team-bio"><strong>OUTDOOR TRIP株式会社 代表</strong>。和歌山県串本町を拠点に、Camp Resort Ohshima・In the Outdoor白浜志原海岸・SAUNA AALTOをはじめとする観光施設を運営。12年の経営経験の中でAIを自社業務に導入し、現場でのリアルな成果をもとにAI活用支援事業「MORE THAN SIX」を立ち上げ。和歌山大学観光学部の社会人学生としても活動中。</p>
+    </div>
+    <div class="team-member fade-up">
+      <img src="https://morethansix.jp/E5D48514.png" alt="溝上幸太" class="team-photo">
+      <p class="team-role">エンジニア ／ 開発・技術</p>
+      <p class="team-name">溝上 幸太</p>
+      <p class="team-name-en en">Kouta Mizogami</p>
+      <p class="team-bio"><strong>和歌山大学システム工学部</strong>所属。高校時代にロボット競技の全国大会で優勝し、世界大会に出場。現在は東京大学松尾研発スタートアップにてAIを用いたシステムの開発にも携わる。保有資格は、情報処理安全確保支援士（登録申請中）、ネットワークスペシャリスト、応用情報技術者、AWS認定資格など。</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="section-header fade-up">
+    <p class="section-label en">Contact</p>
+    <h2 class="section-title" style="color: var(--white);">無料相談のお申し込み</h2>
+    <p class="section-desc">「AIで何ができるか分からない」——それで大丈夫です。<br>御社の業務をお聞きしながら、一緒に考えます。</p>
+  </div>
+  <form class="contact-form fade-up" action="https://formspree.io/f/your-form-id" method="POST">
+    <div class="form-group">
+      <label>お名前<span class="required">必須</span></label>
+      <input type="text" name="name" required placeholder="山田 太郎">
+    </div>
+    <div class="form-group">
+      <label>会社名・屋号</label>
+      <input type="text" name="company" placeholder="株式会社〇〇">
+    </div>
+    <div class="form-group">
+      <label>メールアドレス<span class="required">必須</span></label>
+      <input type="email" name="email" required placeholder="info@example.com">
+    </div>
+    <div class="form-group">
+      <label>電話番号</label>
+      <input type="tel" name="phone" placeholder="090-1234-5678">
+    </div>
+    <div class="form-group">
+      <label>ご興味のあるサービス</label>
+      <select name="service">
+        <option value="">選択してください</option>
+        <option value="workshop">AI講座</option>
+        <option value="advisory">事業全体のAI顧問</option>
+        <option value="custom-saas">カスタマイズSaaS構築</option>
+        <option value="management-os">経営統合OS</option>
+        <option value="undecided">まだわからない</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>ご相談内容<span class="required">必須</span></label>
+      <textarea name="message" required placeholder="ご相談内容をお書きください"></textarea>
+    </div>
+    <button type="submit" class="form-submit">無料相談を申し込む</button>
+    <p class="form-note">通常1営業日以内にご返信します</p>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong class="en">MORE THAN SIX</strong><br>
+  運営：OUTDOOR TRIP株式会社<br>
+  〒640-8451 和歌山県和歌山市中649-3 フォレストヒルズふじと台 504号<br>
+  TEL 090-3264-6979 ／ mail：from.sandy.chord@gmail.com<br><br>
+  <span style="font-size: 0.75rem;">© 2026 MORE THAN SIX. All rights reserved.</span>
+</footer>
+
+<script>
+// Scroll animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// Smooth scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', (e) => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Close mobile menu
+      document.querySelector('nav').classList.remove('menu-open');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
