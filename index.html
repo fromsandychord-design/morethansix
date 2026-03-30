@@ -106,13 +106,13 @@
     }
     .hero-content { position: relative; max-width: 720px; }
     .hero-logo {
-      width: 240px; margin-bottom: 2rem; opacity: 0.95;
+      width: min(85%, 640px); margin-bottom: 2.5rem; opacity: 0.95;
     }
     .hero h1 {
       font-family: 'Outfit', sans-serif;
-      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-size: clamp(1rem, 2vw, 1.4rem);
       font-weight: 300;
-      line-height: 1.6;
+      line-height: 1.8;
       margin-bottom: 1.5rem;
       letter-spacing: 0.02em;
     }
@@ -596,11 +596,7 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-    <svg class="hero-logo" viewBox="0 0 240 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="MORE THAN >6">
-      <text x="0" y="32" font-family="Outfit, sans-serif" font-weight="700" font-size="22" fill="#ffffff" letter-spacing="0.08em">MORE THAN</text>
-      <rect x="168" y="10" width="48" height="28" rx="4" fill="#4a90d9"/>
-      <text x="177" y="32" font-family="Outfit, sans-serif" font-weight="700" font-size="22" fill="#ffffff">&gt;6</text>
-    </svg>
+    <img src="./logo-white.png" alt="MORE THAN SIX - 人にしかできない仕事のために" class="hero-logo">
     <h1>AI活用で<strong>投資対効果6倍</strong>の提案をします。<br>
     業務フローの自動化で、<br>今こそ人が生み出せる価値の探求を</h1>
     <div class="hero-btns">
