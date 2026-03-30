@@ -106,7 +106,7 @@
     }
     .hero-content { position: relative; max-width: 720px; }
     .hero-logo {
-      width: 180px; margin-bottom: 2rem; opacity: 0.95;
+      width: 240px; margin-bottom: 2rem; opacity: 0.95;
     }
     .hero h1 {
       font-family: 'Outfit', sans-serif;
@@ -402,11 +402,13 @@
       align-items: center;
       text-align: center;
     }
+    .team-photo-wrapper {
+      margin-bottom: 1.2rem;
+    }
     .team-photo {
       width: 160px; height: 160px;
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 1.2rem;
       border: 3px solid var(--gray-100);
     }
     .team-photo-placeholder {
@@ -594,11 +596,10 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-    <svg class="hero-logo" viewBox="0 0 180 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="MORE THAN SIX">
+    <svg class="hero-logo" viewBox="0 0 240 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="MORE THAN >6">
       <text x="0" y="32" font-family="Outfit, sans-serif" font-weight="700" font-size="22" fill="#ffffff" letter-spacing="0.08em">MORE THAN</text>
-      <text x="0" y="32" font-family="Outfit, sans-serif" font-weight="700" font-size="22" fill="transparent"> MORE THAN </text>
-      <rect x="128" y="10" width="48" height="28" rx="4" fill="#4a90d9"/>
-      <text x="137" y="32" font-family="Outfit, sans-serif" font-weight="700" font-size="22" fill="#ffffff">&gt;6</text>
+      <rect x="168" y="10" width="48" height="28" rx="4" fill="#4a90d9"/>
+      <text x="177" y="32" font-family="Outfit, sans-serif" font-weight="700" font-size="22" fill="#ffffff">&gt;6</text>
     </svg>
     <h1>AI活用で<strong>投資対効果6倍</strong>の提案をします。<br>
     業務フローの自動化で、<br>今こそ人が生み出せる価値の探求を</h1>
@@ -757,14 +758,17 @@
   </div>
   <div class="team-grid">
     <div class="team-member fade-up">
-      <img src="profile.jpeg" alt="南畑義明" class="team-photo">
+      <div class="team-photo-wrapper">
+        <img src="./profile.jpeg" alt="南畑義明" class="team-photo" loading="eager" decoding="async" fetchpriority="high" onerror="if(!this.dataset.retried){this.dataset.retried='1';this.src='./profile.jpeg?v='+Date.now();}else{this.style.display='none';this.nextElementSibling.style.display='flex';}">
+        <div class="team-photo-placeholder" style="display:none;" aria-label="南畑義明">YM</div>
+      </div>
       <p class="team-role">代表 ／ 経営・戦略</p>
       <p class="team-name">南畑 義明</p>
       <p class="team-name-en en">Yoshiaki Minamihata</p>
       <p class="team-bio"><strong>OUTDOOR TRIP株式会社 代表</strong>。和歌山県串本町を拠点に、Camp Resort Ohshima・In the Outdoor白浜志原海岸・SAUNA AALTOをはじめとする観光施設を運営。12年の経営経験の中でAIを自社業務に導入し、現場でのリアルな成果をもとにAI活用支援事業「MORE THAN SIX」を立ち上げ。和歌山大学観光学部の社会人学生としても活動中。</p>
     </div>
     <div class="team-member fade-up">
-      <div class="team-photo-placeholder" aria-label="溝上幸太">KM</div>
+      <img src="mizogami.png" alt="溝上幸太" class="team-photo">
       <p class="team-role">エンジニア ／ 開発・技術</p>
       <p class="team-name">溝上 幸太</p>
       <p class="team-name-en en">Kouta Mizogami</p>
